@@ -81,6 +81,11 @@ const Main = () => {
         setEditingKey('');
     };
 
+    const handleDelete = (key) => {
+        const newData = data.filter((item) => item.id !== key);
+        setData(newData);
+      };
+
     const column = [
         {
             title: "id",
@@ -127,7 +132,7 @@ const Main = () => {
                         <EditOutlined />
                     </Typography.Link>
                     <Divider type="vertical" />
-                    <Typography.Link>
+                    <Typography.Link onClick={() => handleDelete(record.id)}>
                         <DeleteOutlined />
                     </Typography.Link>
                     </>
